@@ -13,18 +13,15 @@ public class Lambda0 {
     @Test
     public void testRun() {
         runLater(() -> {
-            System.out.println("Run Before");
-            System.out.println("Run After");
+            System.out.println("Run Before " + Thread.currentThread().getName());
         }).run();
     }
 
 
     public Runnable runLater(Runnable runnable) {
         return () -> {
-            // TODO: add output to console
             runnable.run();
-            System.out.println("Run Before");
-            System.out.println("Run After");
+            System.out.println("Run After " + Thread.currentThread().getName());
         };
     }
 
